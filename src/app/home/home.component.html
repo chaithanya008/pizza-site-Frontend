@@ -1,7 +1,13 @@
 <div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
     <h1 class="display-4">Menu</h1>
 </div>
-  
+
+<div class="container" style="text-align: center;" *ngIf="isLoading">
+  <div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
 <div class="container" *ngIf="menus != null">
   <ng-container *ngFor="let menu of menus">
     <h1 class="display-5">{{ menu.name }}</h1>

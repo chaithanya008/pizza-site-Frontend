@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   menus: Menu[];
   cartItemCount: number;
+  isLoading: boolean = true;
 
   constructor(
     private httpService: HttpService,
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.httpService.getMenu().subscribe(
       (res: MenuData) => {
         this.menus = res.data;
+        this.isLoading = false;
         this.cartService.saveMenu(this.menus);
       },
       err => {
