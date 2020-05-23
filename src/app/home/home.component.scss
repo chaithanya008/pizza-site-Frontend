@@ -1,0 +1,14 @@
+.toast{
+    opacity: 1;
+}
+
+.toast-header {
+    color: #fff;
+    padding: 3px 10px;
+    background: green;
+}
+
+button.close span {
+    position: relative;
+    top: 3px;
+}
