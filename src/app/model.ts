@@ -1,14 +1,14 @@
-interface MenuData {
+export interface MenuData {
     data: Menu[];
 }
 
-interface Menu {
+export interface Menu {
     id: number;
     name: string;
     items: Item[];
 }
 
-interface Item {
+export interface Item {
     description: string;
     id: number;
     img_url: string;

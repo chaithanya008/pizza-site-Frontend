@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Item } from './model';
 
 const CART_KEY = 'cart';
 const MENU_KEY = 'menu';

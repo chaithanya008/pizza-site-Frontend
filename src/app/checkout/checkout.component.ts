@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { HttpService } from '../http.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Item } from '../model';
 
 @Component({
   selector: 'app-checkout',

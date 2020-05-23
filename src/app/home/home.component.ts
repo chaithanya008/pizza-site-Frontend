@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { environment } from 'src/environments/environment';
 import { CartService } from '../cart.service';
+import { Item, Menu, MenuData } from '../model';
 declare var jQuery: any;
 
 @Component({
