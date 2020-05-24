@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TrackOrderComponent } from './track-order.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TrackOrderComponent', () => {
   let component: TrackOrderComponent;
@@ -10,7 +11,7 @@ describe('TrackOrderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TrackOrderComponent ],
-      imports: [ReactiveFormsModule]
+      imports: [ReactiveFormsModule, HttpClientModule]
     })
     .compileComponents();
   }));

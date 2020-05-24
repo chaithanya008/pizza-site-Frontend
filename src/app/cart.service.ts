@@ -76,7 +76,7 @@ export class CartService {
     this.storage.set(MENU_KEY, value);
   }
 
-  getMenu() {
+  getMenu(): any {
     return this.storage.get(MENU_KEY);
   }
 }

@@ -44,8 +44,9 @@ export class CheckoutComponent implements OnInit {
     this.totalUsd = 0;
 
     this.cartItems = [];
-    this.menus = this.cartService.getMenu()
-        .map(m => m.items)
+    this.menus = this.cartService.getMenu() || [];
+
+    this.menus = this.menus.map((m: any) => m.items)
         .reduce((previous, current) => previous.concat(current));
 
     this.cartService.getCartItems().then(items => {
