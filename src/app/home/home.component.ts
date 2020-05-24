@@ -11,7 +11,7 @@ declare var jQuery: any;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  title = 'Menu';
   menus: Menu[];
   cartItemCount: number;
   isLoading: boolean = true;
