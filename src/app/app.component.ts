@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'pizza-site-Frontend';
+  title = 'Euro Pizza';
   cartItemCount: number;
 
   constructor(private cartService: CartService) {}

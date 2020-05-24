@@ -30,6 +30,7 @@ export class TrackOrderComponent implements OnInit {
   trackOrder() {
     this.alertType = null;
     
+    // Fetch order details
     this.httpService.trackOrder(this.orderForm.value).subscribe(
       (res: any) => {
         this.orderDetail = res.data;

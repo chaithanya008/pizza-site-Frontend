@@ -32,7 +32,9 @@
         </div>
         <div class="col-sm-6">
           <div class="alert alert-success" role="alert">
-            Order placed successfully. Please find order details. Thank you!
+            Order placed successfully.<br/>
+            Please keep note of contact and order number to track your order.<br/>
+            Thank you!
           </div><br/>
           <button class="btn btn-success" routerLink="/">Go to Home</button>
         </div>
@@ -60,11 +62,22 @@
         </div>
         <div class="input-group col-sm-3">
           <span class="input-group-btn">
-            <button class="btn btn-outline-danger btn-modify" type="button" (click)="modifyItem(cart.id, 'minus')">-</button>
+            <button class="btn-modify" type="button" (click)="modifyItem(cart.id, 'minus')">
+              <svg class="bi bi-dash-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                <path fill-rule="evenodd" d="M3.5 8a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+            </button>
           </span>
           <p class="my-0 cart-qty">{{cart.qty}}</p>
           <span class="input-group-btn">
-            <button class="btn btn-outline-success btn-modify" type="button" (click)="modifyItem(cart.id, 'plus')">+</button>
+            <button class="btn-modify" type="button" (click)="modifyItem(cart.id, 'plus')">
+              <svg class="bi bi-plus-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+                <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+                <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              </svg>
+            </button>
           </span>
         </div>
       </div>
@@ -85,11 +98,11 @@
             <small class="text-muted">/ &#36;{{totalUsd.toFixed(2)}}</small></strong>
         </li>
       </ul>
-
       <button class="btn btn-primary btn-lg btn-block" [disabled]="!orderForm.valid" (click)="placeOrder()">Place Order</button>
     </div>
     <div class="col-md-7 order-md-1">
-      <h4 class="mb-3">Delivery address</h4>
+      <h4 class="mb-3">Please enter Delivery and Contact details to check out</h4>
+      <h5 class="mb-3">Contact details</h5>
       <form class="needs-validation" [formGroup]="orderForm">
         <div class="row">
           <div class="col-md-6 mb-3">
@@ -137,21 +150,25 @@
           </div>
         </div>
 
+        <br/>
+        <h5 class="mb-3">Delivery details</h5>
         <div class="mb-3">
           <label for="address">Address</label>
-          <input
+          <textarea
             formControlName="address"
             type="text"
             class="form-control"
             id="address"
             placeholder="1234 Main St"
+            rows="5"
             required
-          />
+          ></textarea>
           <div class="invalid-feedback">
             Please enter your shipping address.
           </div>
         </div>
       </form>
+      <i>You cant access the order details once clicked "Place order".</i>
     </div>
   </div>
 </div>

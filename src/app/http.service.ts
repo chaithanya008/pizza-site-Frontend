@@ -11,14 +11,17 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
+  // Fetch menu items
   getMenu(): Observable<MenuData> {
     return this.http.get<MenuData>(`${environment.siteUrl}/api/menu`);
   }
 
+  // Track order with order id and contact number
   trackOrder(params: any): Observable<any> {
     return this.http.get(`${environment.siteUrl}/api/order`, {params: params});
   }
 
+  // Place new order
   placeOrder(body: any): Observable<any> {
     return this.http.post(`${environment.siteUrl}/api/order`, body);
   }

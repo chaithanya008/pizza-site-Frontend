@@ -11,7 +11,7 @@ declare var jQuery: any;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
+  title = 'Euro Pizza'
   menus: Menu[];
   cartItemCount: number;
   isLoading: boolean = true;
@@ -26,22 +26,23 @@ export class HomeComponent implements OnInit {
       jQuery('#toastMsg').toast('show');
     });
 
+    // Fetch menu from server
     this.httpService.getMenu().subscribe(
       (res: MenuData) => {
         this.menus = res.data;
         this.isLoading = false;
-        this.cartService.saveMenu(this.menus);
+        this.cartService.saveMenu(this.menus); // Store in browser storage
       },
       err => {
         console.log(err);
       }
     );
 
-    this.cartService.itemCount.subscribe(cnt => this.cartItemCount = cnt);
+    this.cartService.itemCount.subscribe(cnt => this.cartItemCount = cnt); // Listening for item count
   }
 
   getImgUrl(url: string): string {
-    return `${environment.siteUrl}/${url}`;
+    return `${environment.siteUrl}/${url}`; // Generate image url
   }
 
   addToCart(item: Item) {
@@ -49,9 +50,7 @@ export class HomeComponent implements OnInit {
       jQuery('#toastMsg').toast('show');
     });
 
-    console.log(item);
-    
-    this.cartService.addToCart(item);
+    this.cartService.addToCart(item); // Add item to cart
   }
 
 }

@@ -36,10 +36,10 @@
 </div>
 
 <button *ngIf="cartItemCount > 0" type="button" class="btn btn-block btn-success"
-style="position: fixed; right: 10px; top: 100px; width: 150px;"
-routerLink="/checkout">Go To Checkout</button>
+style="position: fixed; right: 10px; top: 100px; width: 120px;"
+routerLink="/checkout"><i class="fa fa-shopping-cart"></i> Checkout</button>
 
-<div aria-live="polite" id="toastMsg" aria-atomic="true" style="position: fixed; right: 10px; bottom: 50px; width: 300px;">
+<div aria-live="polite" id="toastMsg" data-delay="2000" aria-atomic="true" style="position: fixed; right: 10px; bottom: 50px; width: 300px;">
   <div class="toast" style="position: absolute; top: 0; right: 0;">
     <div class="toast-header">
       <strong class="mr-auto">{{ cartItemCount > 0 ? 'Item Added to cart' : 'Welcome to Pizza\'s world' }}</strong>
