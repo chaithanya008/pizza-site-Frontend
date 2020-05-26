@@ -1,15 +1,37 @@
-.toast{
-    opacity: 1;
+.toast {
+  opacity: 1;
 }
 
 .toast-header {
-    color: #fff;
-    padding: 3px 10px;
-    background: green;
-    width: 300px;
+  color: #fff;
+  padding: 3px 10px;
+  background: green;
+  width: 300px;
 }
 
 button.close span {
-    position: relative;
-    top: 3px;
+  position: relative;
+  top: 3px;
+}
+
+.btn-modify {
+  border: none;
+  background: none;
+}
+
+.cart-qty {
+  margin: 0 3px;
+  line-height: 28px;
+}
+
+.card-link {
+  font-size: 14px;
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.card-title {
+  font-size: 16px;
 }
