@@ -57,7 +57,7 @@ export class TrackOrderComponent implements OnInit {
 
     // Itrating one by one
     this.orderDetail.items.forEach((item) => {
-      const existedMenu = this.menus.filter((i) => i.id == item.id); // Check if item matched with menu items
+      const existedMenu = this.menus.filter((i) => i.id == item.item_id); // Check if item matched with menu items
       const menu = existedMenu.length > 0 ? existedMenu[0] : null; // If matched then pick first value
 
       // If menu matched
