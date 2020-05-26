@@ -10,32 +10,63 @@
         <div class="row">
           <div class="col-md-12 mb-3">
             <label for="order">Order Number</label>
-            <input type="text" class="form-control" id="order" placeholder="Enter order number" formControlName="order" required>
+            <input
+              type="text"
+              class="form-control"
+              id="order"
+              placeholder="Enter order number"
+              formControlName="order"
+              required
+            />
             <div class="invalid-feedback">
               Order Number is required.
             </div>
           </div>
           <div class="col-md-12 mb-3">
             <label for="contact">Contact Number</label>
-            <input type="text" class="form-control" id="contact" placeholder="Enter contact number" formControlName="contact" required>
+            <input
+              type="text"
+              class="form-control"
+              id="contact"
+              placeholder="Enter contact number"
+              formControlName="contact"
+              required
+            />
             <div class="invalid-feedback">
               Contact number is required.
             </div>
           </div>
           <div class="col-md-12 mb-3">
-            <button class="btn btn-primary btn-lg btn-block" [disabled]="!orderForm.valid" (click)="trackOrder()">Track Order</button>
+            <button
+              class="btn btn-primary btn-lg btn-block"
+              [disabled]="!orderForm.valid"
+              (click)="trackOrder()"
+            >
+              Track Order
+            </button>
           </div>
         </div>
       </form>
-      <div class="col-sm-12" style="margin-top: 15px;" *ngIf="alertType != null">
-        <div [ngClass]="{'alert': true, 'alert-success': alertType, 'alert-danger': !alertType}" role="alert">
+      <div
+        class="col-sm-12"
+        style="margin-top: 15px;"
+        *ngIf="alertType != null"
+      >
+        <div
+          [ngClass]="{
+            alert: true,
+            'alert-success': alertType,
+            'alert-danger': !alertType
+          }"
+          role="alert"
+        >
           {{
-            alertType 
-            ? 'Please find tracking order details. Thank you!' 
-            : 'Order not found! Please enter correct details.'
+            alertType
+              ? "Please find tracking order details. Thank you!"
+              : "Order not found! Please enter correct details."
           }}
         </div>
-        <br/>
+        <br />
       </div>
     </div>
 
@@ -44,48 +75,63 @@
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Order Details</span>
         </h4>
-        <div class="col-sm-12 list-group-item d-flex justify-content-between lh-condensed">
+        <div
+          class="col-sm-12 list-group-item d-flex justify-content-between lh-condensed"
+        >
           <div class="col-sm-6">
             <h6 class="my-1">Order No.</h6>
-            <small class="text-muted">{{orderDetail.id}}</small>
+            <small class="text-muted">{{ orderDetail.id }}</small>
           </div>
           <div class="col-sm-6">
             <h6 class="my-1">Price</h6>
             <span>
-              &euro;{{orderDetail.price_eur}} <small class="text-muted">/ &#36;{{orderDetail.price_usd}}</small>
+              &euro;{{ orderDetail.price_eur }}
+              <small class="text-muted"
+                >/ &#36;{{ orderDetail.price_usd }}</small
+              >
             </span>
           </div>
         </div>
-        <div class="col-sm-12 list-group-item d-flex justify-content-between lh-condensed">
+        <div
+          class="col-sm-12 list-group-item d-flex justify-content-between lh-condensed"
+        >
           <div class="col-sm-6">
             <h6 class="my-1">Contact</h6>
-            <small class="text-muted">{{orderDetail.contact}}</small>
+            <small class="text-muted">{{ orderDetail.contact }}</small>
           </div>
           <div class="col-sm-6">
             <h6 class="my-1">Address</h6>
-            <small class="text-muted">{{orderDetail.address}}</small>
+            <small class="text-muted">{{ orderDetail.address }}</small>
           </div>
         </div>
       </div>
 
-      <div class="col-sm-12" *ngIf="orderItems?.length > 0" style="margin-top: 20px;">
+      <div
+        class="col-sm-12"
+        *ngIf="orderItems?.length > 0"
+        style="margin-top: 20px;"
+      >
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Order Items</span>
         </h4>
-        <div class="col-sm-12 list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of orderItems">
+        <div
+          class="col-sm-12 list-group-item d-flex justify-content-between lh-condensed"
+          *ngFor="let item of orderItems"
+        >
           <div class="col-sm-6">
-            <h6 class="my-0">{{item.name}}</h6>
-            <small class="text-muted">{{item.description}}</small>
+            <h6 class="my-0">{{ item.name }}</h6>
+            <small class="text-muted">{{ item.description }}</small>
           </div>
           <div class="text-muted col-sm-3">
-            &euro;{{item.priceEur.toFixed(2)}} 
-            <small class="text-muted">/ &#36;{{item.priceUsd.toFixed(2)}}</small>
+            &euro;{{ item.priceEur.toFixed(2) }}
+            <small class="text-muted"
+              >/ &#36;{{ item.priceUsd.toFixed(2) }}</small
+            >
           </div>
-          <div class="text-muted col-sm-3">
-            Quantity: {{item.qty}}
-          </div>
-        </div><br/>
-        <button class="btn btn-success" routerLink="/">Go to Home</button><br/>
+          <div class="text-muted col-sm-3">Quantity: {{ item.qty }}</div>
+        </div>
+        <br />
+        <button class="btn btn-success" routerLink="/">Go to Home</button><br />
       </div>
     </div>
   </div>

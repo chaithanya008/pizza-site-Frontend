@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
-import { HttpService } from '../http.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Item } from '../model';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { CartService } from "../cart.service";
+import { HttpService } from "../http.service";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Item } from "../model";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss']
+  selector: "app-checkout",
+  templateUrl: "./checkout.component.html",
+  styleUrls: ["./checkout.component.scss"],
 })
 export class CheckoutComponent implements OnInit {
-
   orderForm: FormGroup;
 
   menus: Item[];
@@ -28,15 +27,15 @@ export class CheckoutComponent implements OnInit {
     private cartService: CartService,
     private fb: FormBuilder,
     private route: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     // Prepare checkout form
     this.orderForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      contact: ['', Validators.required],
-      address: ['', Validators.required]
+      firstName: ["", Validators.required],
+      lastName: ["", Validators.required],
+      contact: ["", Validators.required],
+      address: ["", Validators.required],
     });
 
     this.initCartItems(); // Initialize cart items
@@ -49,18 +48,19 @@ export class CheckoutComponent implements OnInit {
     this.cartItems = [];
     this.menus = this.cartService.getMenu() || []; // Fetch Menu
 
-    this.menus = this.menus.map((m: any) => m.items)
-        .reduce((previous, current) => previous.concat(current)); // Merging all items in single array
+    this.menus = this.menus
+      .map((m: any) => m.items)
+      .reduce((previous, current) => previous.concat(current)); // Merging all items in single array
 
     // fetch cart itemss from browser storage
-    this.cartService.getCartItems().then(items => {
+    this.cartService.getCartItems().then((items) => {
       if (items.length == 0) {
-        this.route.navigate(['/']);
+        this.route.navigate(["/"]);
       }
 
       // Itrating one by one
-      items.forEach(item => {
-        const existedMenu = this.menus.filter(i => i.id == item.id); // Check if item matched with menu items
+      items.forEach((item) => {
+        const existedMenu = this.menus.filter((i) => i.id == item.id); // Check if item matched with menu items
         const menu = existedMenu.length > 0 ? existedMenu[0] : null; // If matched then pick first value
 
         // If menu matched
@@ -78,10 +78,10 @@ export class CheckoutComponent implements OnInit {
             description: menu.description,
             qty: item.qty,
             priceEur: eur,
-            priceUsd: usd
+            priceUsd: usd,
           });
         }
-      })
+      });
     });
   }
 
@@ -95,22 +95,17 @@ export class CheckoutComponent implements OnInit {
   // Place and new order
   async placeOrder() {
     // Extracting form value
-    const {
-      firstName,
-      lastName, 
-      contact, 
-      address
-    } = this.orderForm.value;
+    const { firstName, lastName, contact, address } = this.orderForm.value;
 
     const orders = await this.cartService.getCartItems(); // Get all cart items from browser storage
-    
+
     // Prepare form data to place an order
     const body = {
-      "name": `${firstName} ${lastName}`,
-      "contact": contact,
-      "address": address,
-      "order": JSON.stringify(orders)
-    }
+      name: `${firstName} ${lastName}`,
+      contact: contact,
+      address: address,
+      order: JSON.stringify(orders),
+    };
 
     // Post form data to server
     this.httpService.placeOrder(body).subscribe(
@@ -120,7 +115,7 @@ export class CheckoutComponent implements OnInit {
         this.orderDetail = res.data; // Assigning order details
         this.cartService.clearCart(); // Clear cart because order placed
       },
-      err => {
+      (err) => {
         this.alertType = false; // Failed
       }
     );

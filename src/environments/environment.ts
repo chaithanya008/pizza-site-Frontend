@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // siteUrl: 'http://localhost:8000',
-  siteUrl: 'https://pizza-site-backend.herokuapp.com',
+  siteUrl: "https://pizza-site-backend.herokuapp.com",
 };
 
 /*
