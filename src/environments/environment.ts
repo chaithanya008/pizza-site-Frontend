@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  // siteUrl: 'http://localhost:8000',
-  siteUrl: "https://pizza-site-backend.herokuapp.com",
+  production: true,
+  siteUrl: "http://localhost:8000", //change to work on localost
+  // siteUrl: "https://pizza-site-backend.herokuapp.com", //your Heroku frontend URL
 };
 
 /*
