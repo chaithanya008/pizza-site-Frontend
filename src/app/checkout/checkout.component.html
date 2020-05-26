@@ -59,7 +59,7 @@
   <div class="row" *ngIf="!isOrderPlaced">
     <div class="col-md-5 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Your cart</span>
+        <span class="text-muted">Review your order(s)</span>
       </h4>
       <div
         class="row list-group-item d-flex justify-content-between lh-condensed"
@@ -203,7 +203,7 @@
           <label for="contact">Contact Number</label>
           <input
             formControlName="contact"
-            type="text"
+            type="number"
             class="form-control"
             id="contact"
             placeholder="Contact number"
@@ -223,7 +223,7 @@
             type="text"
             class="form-control"
             id="address"
-            placeholder="1234 Main St"
+            placeholder="Please provide: Street name, Building number, Floor no and PLZ"
             rows="5"
             required
           ></textarea>
