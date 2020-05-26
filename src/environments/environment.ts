@@ -4,8 +4,8 @@
 
 export const environment = {
   production: true,
-  siteUrl: "http://localhost:8000", //change to work on localost
-  // siteUrl: "https://pizza-site-backend.herokuapp.com", //your Heroku frontend URL
+  // siteUrl: "http://localhost:8000", //Use this for localhost and comment below line
+  siteUrl: "https://pizza-site-backend.herokuapp.com", //your Heroku frontend URL
 };
 
 /*
