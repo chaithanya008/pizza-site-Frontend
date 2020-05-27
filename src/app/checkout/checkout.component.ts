@@ -39,6 +39,7 @@ export class CheckoutComponent implements OnInit {
     });
 
     this.initCartItems(); // Initialize cart items
+    
   }
 
   initCartItems() {

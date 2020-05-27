@@ -17,6 +17,7 @@ export class TrackOrderComponent implements OnInit {
 
   menus: Item[];
   orderItems: any[] = [];
+  dateTime: number;
 
   constructor(
     private httpService: HttpService,
@@ -45,6 +46,9 @@ export class TrackOrderComponent implements OnInit {
         this.alertType = false;
       }
     );
+
+    this.dateTime = Date.now();
+    console.log(this.dateTime);
   }
 
   // Extracting order
