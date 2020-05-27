@@ -167,7 +167,7 @@
         Please enter Delivery and Contact details to check out
       </h4>
       <h5 class="mb-3">Contact details</h5>
-      <form class="needs-validation" [formGroup]="orderForm">
+      <form class="was-validated" [formGroup]="orderForm" novalidate>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -177,6 +177,8 @@
               class="form-control"
               id="firstName"
               placeholder="First name"
+              pattern="^[A-Za-z ]{1,}$"
+              maxlength="20"
               required
             />
             <div class="invalid-feedback">
@@ -191,10 +193,26 @@
               class="form-control"
               id="lastName"
               placeholder="Last name"
+              pattern="^[A-Za-z ]{1,}$"
+              maxlength="20"
               required
             />
             <div class="invalid-feedback">
               Valid last name is required.
+            </div>
+          </div>
+          <div class="col-md-12 mb-3">
+            <label for="email">Email address:</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Enter email id"
+              id="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required
+            />
+            <div class="invalid-feedback">
+              Valid Email is required.
             </div>
           </div>
         </div>
@@ -203,14 +221,16 @@
           <label for="contact">Contact Number</label>
           <input
             formControlName="contact"
-            type="number"
+            type="text"
             class="form-control"
             id="contact"
-            placeholder="Contact number"
+            placeholder="ex: 11122224444"
+            pattern="^[0-9- /]{6,}$"
+            maxlength="15"
             required
           />
-          <div class="invalid-feedback" style="width: 100%;">
-            Your Contact Number is required.
+          <div class="invalid-feedback">
+            Valid phone number required
           </div>
         </div>
 
@@ -218,21 +238,45 @@
         <h5 class="mb-3">Delivery details</h5>
         <div class="mb-3">
           <label for="address">Address</label>
-          <textarea
+          <small class="text-muted">
+            ( Street name, Building number, Floor number, PLZ )</small
+          >
+          <input
             formControlName="address"
             type="text"
             class="form-control"
             id="address"
-            placeholder="Please provide: Street name, Building number, Floor no and PLZ"
-            rows="5"
+            placeholder="Ex: Heinrichstrasse, 43d, 7, 45187"
+            pattern="^[A-Za-z0-9.,\-_/ ]{1,}$"
+            minlength="7"
+            maxlength="90"
             required
-          ></textarea>
+          />
           <div class="invalid-feedback">
-            Please enter your shipping address.
+            Please enter your delivery address<br />( only text, numbers and
+            characters " . , - / " are valid )
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="address">Instructions</label>
+          <textarea
+            formControlName="instructions"
+            type="text"
+            class="form-control"
+            id="instructions"
+            placeholder="Please provide any specific instructions that you would like to let us know about your order"
+            rows="5"
+          ></textarea>
+          <div class="valid-feedback">
+            Optional
           </div>
         </div>
       </form>
-      <i>You cant access the order details once clicked "Place order".</i>
+      <dl>
+        <dt class="text-warning">
+          You cant change your order once order is placed.
+        </dt>
+      </dl>
     </div>
   </div>
 </div>
