@@ -177,7 +177,7 @@
               class="form-control"
               id="firstName"
               placeholder="First name"
-              pattern="^[A-Za-z ]{1,}$"
+              pattern="^[A-Za-z ]{2,}$"
               maxlength="20"
               required
             />
@@ -193,7 +193,7 @@
               class="form-control"
               id="lastName"
               placeholder="Last name"
-              pattern="^[A-Za-z ]{1,}$"
+              pattern="^[A-Za-z ]{3,}$"
               maxlength="20"
               required
             />
@@ -249,7 +249,7 @@
             placeholder="Ex: Heinrichstrasse, 43d, 7, 45187"
             pattern="^[A-Za-z0-9.,\-_/ ]{1,}$"
             minlength="7"
-            maxlength="90"
+            maxlength="300"
             required
           />
           <div class="invalid-feedback">
@@ -271,11 +271,6 @@
           </div>
         </div>
       </form>
-      <dl>
-        <dt class="text-warning">
-          You cant change your order once order is placed.
-        </dt>
-      </dl>
     </div>
   </div>
 </div>

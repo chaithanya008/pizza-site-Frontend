@@ -70,8 +70,6 @@ export class HomeComponent implements OnInit {
         const existedMenu = this.orderMenus.filter((i) => i.id == item.id); // Check if item matched with menu items
         const menu: any = existedMenu.length > 0 ? existedMenu[0] : null; // If matched then pick first value
 
-        console.log(menu);
-
         // If menu matched
         if (menu != null) {
           const eur = item.qty * menu.price_eur; // Sum of EUR * quantity
